@@ -1,0 +1,18 @@
+<div class="main">
+  <h1>Git User Profile Viewer</h1>
+  <div class="form-container">
+    <label for="username">Search a git user and hit enter</label>
+    <input [(ngModel)]="username" type="text" name="username" placeholder="Username"
+      (keydown.enter)="search($event.target)">
+  </div>
+
+  <div id="card-container">
+    <div *ngFor="let user of this.userService.users|keyvalue" class="card" [routerLink]="['/view', user.key]">
+      <img class="avatar" src="{{user.value.avatar_url}}" alt="">
+      <span class="name">{{user.value.name}}</span>
+      <span class="login-name">({{user.value.login}})</span>
+      <span class="company">{{user.value.company}}</span>
+      <span class="followers">{{user.value.followers}} followers</span>
+      <span class="repos">{{user.value.public_repos}} public repos</span>
+    </div>
+  </div>

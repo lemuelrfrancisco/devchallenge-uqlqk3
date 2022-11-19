@@ -1,0 +1,18 @@
+<div class="main">
+  <div class="header">
+    <h1>Git User Profile Viewer</h1>
+    <button type="button" [routerLink]="['']">Back</button>
+  </div>
+  <div *ngIf="user">
+    <img class="avatar" src="{{user.avatar_url}}" alt="">
+    <div class="info">
+      <span class="name">{{user.name}}</span>
+      <span class="location">{{user.location}}</span>
+      <span class="bio">{{user.bio}}</span>
+      <span class="login-name">({{user.login}})</span>
+      <span class="company">{{user.company}}</span>
+      <span class="followers">{{user.followers}} followers</span>
+      <span class="repos">{{user.public_repos}} public repos</span>
+    </div>
+  </div>
+</div>
